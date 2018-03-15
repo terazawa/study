@@ -113,8 +113,8 @@ only showing top 5 rows
     * exactly-onceが実現できる(確実に1回だけ実行)
     * 損失ゼロを効率的に実現できる(ReceiverだとWALが必要だった)
 
-# Why Spark
+# Why Spark
 
 * MLとかになるとTensorflowとか
-  * ETLとかMLだけをやる訳ではないのでSparkがいるのでは(川崎さん)
-* インフラの堅牢性？
+  * ETLとかMLだけをやる訳ではないのでSparkがいるのでは(川崎さん)
+* インフラの堅牢性？
