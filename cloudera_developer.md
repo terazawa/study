@@ -28,7 +28,7 @@ SQLというより構造データを読み込むためのライブラリ。CSV�
 
 * データソースとして使えるもの。
   * CSV,JSON,RDB(JDBC,ODBC),Hive,Parquetなど。
-* アクセスするためのAPIはSQL系とDataFrame/Dataset系の2パターン
+* アクセスするためのAPIはSQL系とDataFrame/Dataset系の2パターン
   * SQLはAPIを通してSQL文をそのまま文字列として投げ込むもの。
     * ```spark.sql("SELECT first_name, last_name FROM accounts")```
   * DataFrame/DatasetはPython/Scalaのメソッドで操作するもの。
@@ -93,13 +93,13 @@ only showing top 5 rows
 * time slicing
   * Dstream.slice()
   * StreamingContext.remember()
-  * これを使うならKafka使った方がいい。
+  * これを使うならKafka使った方がいい。
 * updateStateByKey
   * 累積
   * checkpointを書く必要がある(ないと実行時エラー)
     * 適宜HDFSにflushされる
-  * Expanding Window
-* SlidingWindow
+  * Expanding Window
+* SlidingWindow
   * バッチ間隔と別のタイミングで実行する
   * 過去どれくらいの期間を処理するかwindow幅を指定する。
   * checkpointを書く必要がる。
@@ -115,6 +115,5 @@ only showing top 5 rows
 
 # Why Spark
 
-* MLとかになるとTensorflowとか
+* MLとかになるとTensorflowとか
   * ETLとかMLだけをやる訳ではないのでSparkがいるのでは(川崎さん)
-* インフラの堅牢性？
