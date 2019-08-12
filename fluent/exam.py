@@ -1,6 +1,3 @@
-#%% [markdown]
-## Exsample 1-1
-
 #%%
 import collections
 from libs import *

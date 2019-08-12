@@ -32,3 +32,11 @@
 
 * ```tests```
   * ```__init__.py```
+
+### jupyter
+
+```json
+{
+    "python.dataScience.notebookFileRoot": "${workspaceFolder}/fluent"
+}
+```
