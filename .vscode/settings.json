@@ -1,0 +1,12 @@
+{
+    "python.jediEnabled": false,
+    "python.autoComplete.extraPaths": [
+        "./fluent"
+    ],
+    "python.testing.pytestArgs": [
+        "fluent"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+}

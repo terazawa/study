@@ -1,2 +1,7 @@
-.ipynb_checkpoints
 *.pdf
+.ipynb_checkpoints
+__pycache__
+.pytest_cache
+.vscode/*
+!.vscode/settings.json
+!.vscode/task.json
