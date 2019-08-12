@@ -1,4 +1,4 @@
-from libs import *
+from libs.carddeck import *
 
 class TestLibs:
     def setup(self):

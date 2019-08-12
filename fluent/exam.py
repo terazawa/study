@@ -1,6 +1,6 @@
 #%%
 import collections
-from libs import *
+from libs.carddeck import *
 
 #%%
 beer_card = Card('7', 'diamonds')
