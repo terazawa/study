@@ -40,3 +40,11 @@
     "python.dataScience.notebookFileRoot": "${workspaceFolder}/fluent"
 }
 ```
+
+### debug
+
+```json
+{
+    "python.testing.cwd": "${workspaceFolder}/fluent"
+}
+```
