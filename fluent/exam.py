@@ -1,6 +1,7 @@
 #%%
 import collections
 from libs.carddeck import *
+from libs.vector import *
 
 #%%
 beer_card = Card('7', 'diamonds')
@@ -51,3 +52,10 @@ Card('7', 'spades')
 #%%
 for card in sorted(deck, key=spades_high):
     print(card)
+
+#%%
+v = Vector(3,4)
+v
+
+#%%
+abs(v)
