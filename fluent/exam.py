@@ -63,4 +63,32 @@ abs(v)
 #%%
 Vector(2, 1) + Vector(2, 4)
 
+#%%
+symbols = '$¢£¥€¤'
+codes = []
+for symbol in symbols:
+    codes.append(ord(symbol))
+codes
 
+#%%
+beyond_ascii = [ord(s) for s in symbols if ord(s) > 127]
+beyond_ascii
+
+#%%
+colors = ['black', 'white']
+sizes = ['S', 'M', 'L']
+tshirts = [(color, size) for color in colors for size in sizes]
+tshirts
+
+#%%
+tuple(ord(symbol) for symbol in symbols)
+
+#%%
+import array
+a = array.array('I', (ord(symbol) for symbol in symbols))
+for i in a:
+    print(f"{i} : {type(i)}")
+
+#%%
+for tshirts in ( f"{c} {s}" for c in colors for s in sizes):
+    print(tshirts)
