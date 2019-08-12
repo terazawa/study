@@ -4,6 +4,8 @@
 
 ### language server
 
+* https://github.com/microsoft/python-language-server/issues/1085
+
 ```json
 {
     "python.jediEnabled": false,
@@ -14,6 +16,8 @@
 ```
 
 ### pytest
+
+* http://doc.pytest.org/en/latest/goodpractices.html
 
 ```json
 {
