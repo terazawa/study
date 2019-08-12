@@ -59,3 +59,8 @@ v
 
 #%%
 abs(v)
+
+#%%
+Vector(2, 1) + Vector(2, 4)
+
+

@@ -14,3 +14,9 @@ class TestFrenchDeck:
 class TestVector:
     def test_abs(self):
         assert abs(Vector(3, 4)) == 5
+
+    def test_add(self):
+        assert Vector(2, 4) + Vector(2, 1) == Vector(4, 5)
+
+    def test_mul(self):
+        assert Vector(3, 4) * 3 == Vector(9, 12)
