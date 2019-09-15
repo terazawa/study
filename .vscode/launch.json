@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "OctaveDebugger",
+            "request": "launch",
+            "name": "Octave: Launch Program",
+            "program": "${command:AskForProgramName}",
+            "octave": "octave-cli",
+            "sourceFolder": "${workspaceFolder}"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
