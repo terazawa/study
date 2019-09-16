@@ -26,10 +26,8 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
-
-
-
-
+m = length(X)
+mu = X' * ones(m,1) / m
 
 
 
