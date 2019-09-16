@@ -27,9 +27,10 @@ sigma = zeros(1, size(X, 2));
 %       
 
 m = length(X)
-mu = X' * ones(m,1) / m
-
-
+mu = mean(X)
+X_norm = X .- mu
+sigma = std(X)
+X_norm = X_norm ./ sigma
 
 
 % ============================================================
