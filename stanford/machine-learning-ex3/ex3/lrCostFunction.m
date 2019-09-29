@@ -37,8 +37,13 @@ grad = zeros(size(theta));
 %
 
 
-
-
+h = sigmoid(X * theta)
+n = length(theta)
+theta_p = theta(2:n)
+penal = sum(theta_p .^ 2) * lambda / (2*m)
+J = sum( -y .* log(h) -(1-y) .* log(1-h) ) / m + penal
+grad_penal = [ 0; theta_p .* ( lambda / m ) ]
+grad = (sum( ( h-y ) .* X ) / m)' + grad_penal
 
 
 
