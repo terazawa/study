@@ -79,15 +79,15 @@ J = cost_sum + penal;
 
 for t = 1:m
     d3 = (a3(t,:) - Y(t,:))';
-    size(d3)
-    gd = sigmoidGradient((z2(t,:))')
-    size(gd)
-    d2 = (Theta2(:,2:end))' * d3 .* gd
-    size(d2)
-    Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + d2 * (a1(t,:));
-    size(d2 * (a1(t,:)))
+    size(d3);
+    gd = sigmoidGradient((z2(t,:))');
+    size(gd);
+    d2 = (Theta2(:,2:end))' * d3 .* gd;
+    size(d2);
+    Theta1_grad = Theta1_grad + d2 * (a1_o(t,:));
+    size(d2 * (a1(t,:)));
     Theta2_grad = Theta2_grad + d3 * (a2_o(t,:));
-    size(d3 * (a2(t,:)))
+    size(d3 * (a2(t,:)));
 endfor
 
 Theta1_grad = Theta1_grad / m;
