@@ -62,17 +62,17 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
-
+Y = y == 1:max(y);
 X_o = [ones(m,1) X];
 a2 = sigmoid(X_o * Theta1');
 a2_o = [ones(m,1) a2];
 a3 = sigmoid(a2_o * Theta2');
 h = a3;
-cost = sum( -y .* log(h) -(1-y) .* log(1-h) ) / m 
-theta_p = [Theta1(:,2:input_layer_size)(:) ; Theta2(:,2:hidden_layer_size)(:)]
+cost = -Y .* log(h) -(1-Y) .* log(1-h);
+cost_sum = sum( sum( cost ) ) / m ;
+theta_p = [Theta1(:,2:input_layer_size)(:) ; Theta2(:,2:hidden_layer_size)(:)];
 penal = sum(theta_p .^ 2) * lambda / (2*m);
-J = cost + penal;
-
+J = cost_sum + penal;
 
 
 
