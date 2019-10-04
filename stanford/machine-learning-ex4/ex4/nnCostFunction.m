@@ -90,9 +90,14 @@ for t = 1:m
     size(d3 * (a2(t,:)));
 endfor
 
-Theta1_grad = Theta1_grad / m;
-Theta2_grad = Theta2_grad / m;
-
+pena1 = Theta1;
+pena1(:,1) = 0;
+pena1 = pena1 * (lambda / m);
+pena2 = Theta2;
+pena2(:,1) = 0;
+pena2 = pena2 * (lambda / m);
+Theta1_grad = Theta1_grad / m + pena1;
+Theta2_grad = Theta2_grad / m + pena2;
 
 
 
