@@ -63,8 +63,9 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 Y = y == 1:max(y);
-X_o = [ones(m,1) X];
-z2 = X_o * Theta1';
+a1 = X;
+a1_o = [ones(m,1) a1];
+z2 = a1_o * Theta1';
 a2 = sigmoid(z2);
 a2_o = [ones(m,1) a2];
 z3 = a2_o * Theta2'
@@ -76,10 +77,18 @@ theta_p = [Theta1(:,2:input_layer_size+1)(:) ; Theta2(:,2:hidden_layer_size+1)(:
 penal = sum(theta_p .^ 2) * lambda / (2*m);
 J = cost_sum + penal;
 
+for t = 1:m
+    d3 = (a3(t,:) - Y(t,:))'
+    size(d3)
+    gd = sigmoidGradient((z2(t,:))')
+    size(gd)
+    d2 = (Theta2(:,2:end))' * d3 .* gd
+    size(d2)
+    Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + d2 * (a1(t,:));
+    Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + d3 * (a2(t,:));
 
-
-
-
+Theta1_grad = Theta1_grad / m;
+Theta2_grad = Theta2_grad / m;
 
 
 
