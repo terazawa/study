@@ -70,7 +70,7 @@ a3 = sigmoid(a2_o * Theta2');
 h = a3;
 cost = -Y .* log(h) -(1-Y) .* log(1-h);
 cost_sum = sum( sum( cost ) ) / m ;
-theta_p = [Theta1(:,2:input_layer_size)(:) ; Theta2(:,2:hidden_layer_size)(:)];
+theta_p = [Theta1(:,2:input_layer_size+1)(:) ; Theta2(:,2:hidden_layer_size+1)(:)];
 penal = sum(theta_p .^ 2) * lambda / (2*m);
 J = cost_sum + penal;
 
