@@ -64,9 +64,11 @@ Theta2_grad = zeros(size(Theta2));
 
 Y = y == 1:max(y);
 X_o = [ones(m,1) X];
-a2 = sigmoid(X_o * Theta1');
+z2 = X_o * Theta1';
+a2 = sigmoid(z2);
 a2_o = [ones(m,1) a2];
-a3 = sigmoid(a2_o * Theta2');
+z3 = a2_o * Theta2'
+a3 = sigmoid(z3);
 h = a3;
 cost = -Y .* log(h) -(1-Y) .* log(1-h);
 cost_sum = sum( sum( cost ) ) / m ;
