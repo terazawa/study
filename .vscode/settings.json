@@ -1,13 +1,15 @@
 {
     "python.jediEnabled": false,
     "python.autoComplete.extraPaths": [
-        "./fluent"
+        "./fluent",
+        "./zero"
     ],
     "python.testing.pytestArgs": [
-        "fluent"
+        "fluent",
+        "zero"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": true,
-    "python.dataScience.notebookFileRoot": "${workspaceFolder}/fluent"
+    "python.dataScience.notebookFileRoot": ""
 }
