@@ -64,3 +64,12 @@ print(X[:,0])
 
 #%%
 print(X > 15)
+print(X[X > 15])
+
+#%%
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+x = np.arange(0, 6, 0.1)
+y = np.sin(x)
+plt.plot(x, y)
