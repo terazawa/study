@@ -43,8 +43,8 @@ Theta_grad = zeros(size(Theta));
 penal = sum(sum(Theta .^ 2)) + sum(sum(X .^ 2));
 penal = (lambda * penal) / 2;
 J = sum(((X * Theta' - Y).^2)(R == 1)) / 2 + penal;
-X_grad = (X * Theta' - Y) .* R * Theta;
-Theta_grad = ((X * Theta' - Y) .* R)' * X;
+X_grad = (X * Theta' - Y) .* R * Theta + X * lambda;
+Theta_grad = ((X * Theta' - Y) .* R)' * X + Theta * lambda;
 
 % =============================================================
 
