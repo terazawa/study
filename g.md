@@ -144,9 +144,21 @@
 
 ## 学習
 
-* オンライン
-* ミニバッチ
-* バッチ
+* (Batch)Gradient Descent
+  * 全サンプルを使ってthetaを1回更新する
+  * バッチ学習
+* Stochastic Gradiend Descent (SGD)
+  * 1サンプルを使ってthetaを1回更新する
+  * バタバタしながらglobal minimumに向かう
+  * 収束しない、うろちょろする
+  * 確率的勾配降下法
+  * オンライン学習って呼ぶのは誤用なんじゃないか。
+  * Online/Offlineどちらでも使える。
+* Mini-Batch Gradient Descent
+  * あるサイズのサンプルをいっぺんに使ってthetaを1回更新する
+  * ミニバッチ学習
+* iteration = thetaを更新した回数
+* epoch = 全サンプル使い切った回数
 
 ## 評価
 
