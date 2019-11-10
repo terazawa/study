@@ -62,6 +62,14 @@
 * GoogleScholor
 * arXiv
 
+### framework
+
+* Tensorflow
+* Keras
+* Chainer
+* PyTorch
+* Caffe
+
 ## 基本
 
 * 情報量
@@ -133,6 +141,12 @@
   * 蒸留などを表す一般用語？
 * 転用モデル
   * ？？？
+
+## 学習
+
+* オンライン
+* ミニバッチ
+* バッチ
 
 ## 評価
 
