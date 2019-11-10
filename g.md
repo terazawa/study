@@ -59,7 +59,7 @@
 ### 道具
 
 * Kaggle
-* GoogleScholor
+* Google Scholar
 * arXiv
 
 ### framework
