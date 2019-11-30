@@ -75,3 +75,26 @@ alt.Chart(df).mark_point().encode(
     y='x2',
 )
 
+#%%
+from sklearn.neighbors import KNeighborsClassifier
+clf = KNeighborsClassifier(n_neighbors=3)
+
+#%%
+clf.fit(X_train, y_train)
+
+#%%
+print(f"Test set predicctions: {clf.predict(X_test)}")
+
+#%%
+print(f"Test set accuracy: {clf.score(X_test, y_test):.2f}")
+
+#%%
+df = pd.DataFrame(X_train, columns=['x1', 'x2'])
+df['y'] = y_train
+alt.Chart(df).mark_point().encode(
+    x=alt.X('x1', scale=alt.Scale(zero=False)),
+    y='x2',
+    color='y:N'
+)
+
+#%%
