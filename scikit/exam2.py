@@ -92,9 +92,10 @@ print(f"Test set predicctions: {clf.predict(df_test[features])}")
 print(f"Test set accuracy: {clf.score(df_test[features], df_test.y):.2f}")
 
 #%%
-print(clf.predict(df_train[features]))
 df_train['predict'] = clf.predict(df_train[features])
 df_test['predict'] = clf.predict(df_test[features])
+
+#%%
 chart_train = alt.Chart(df_train).mark_point(filled=True).encode(
     x=alt.X('x1', scale=alt.Scale(zero=False)),
     y='x2',
