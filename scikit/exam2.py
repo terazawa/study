@@ -60,19 +60,22 @@ mglearn.plots.plot_knn_classification(n_neighbors=5)
 # separate datasets
 from sklearn.model_selection import train_test_split
 X, y = mglearn.datasets.make_forge()
-X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+features = ['x1', 'x2']
+df = pd.DataFrame(X, columns=features)
+df['y'] = y
+df_train, df_test = train_test_split(df, random_state=0)
 
 #%%
-print(X_train)
-print(type(X_train))
-print(X_train[:,0])
-plt.scatter(X_train[:,0], X_train[:,1])
+df_train
 
 #%%
-df = pd.DataFrame(X_train, columns=['x1', 'x2'])
-alt.Chart(df).mark_point().encode(
+df_test
+
+#%%
+alt.Chart(df_train).mark_point().encode(
     x=alt.X('x1', scale=alt.Scale(zero=False)),
     y='x2',
+    color='y:N'
 )
 
 #%%
@@ -80,21 +83,28 @@ from sklearn.neighbors import KNeighborsClassifier
 clf = KNeighborsClassifier(n_neighbors=3)
 
 #%%
-clf.fit(X_train, y_train)
+clf.fit(df_train[features], df_train.y)
 
 #%%
-print(f"Test set predicctions: {clf.predict(X_test)}")
+print(f"Test set predicctions: {clf.predict(df_test[features])}")
 
 #%%
-print(f"Test set accuracy: {clf.score(X_test, y_test):.2f}")
+print(f"Test set accuracy: {clf.score(df_test[features], df_test.y):.2f}")
 
 #%%
-df = pd.DataFrame(X_train, columns=['x1', 'x2'])
-df['y'] = y_train
-alt.Chart(df).mark_point().encode(
+print(clf.predict(df_train[features]))
+df_train['predict'] = clf.predict(df_train[features])
+df_test['predict'] = clf.predict(df_test[features])
+chart_train = alt.Chart(df_train).mark_point(filled=True).encode(
     x=alt.X('x1', scale=alt.Scale(zero=False)),
     y='x2',
-    color='y:N'
+    color='y:N',
+    shape='predict:N'
 )
-
-#%%
+chart_test = alt.Chart(df_test).mark_point(filled=False).encode(
+    x=alt.X('x1', scale=alt.Scale(zero=False)),
+    y='x2',
+    color='y:N',
+    shape='predict:N'
+)
+chart_train + chart_test
