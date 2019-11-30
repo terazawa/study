@@ -5,6 +5,7 @@ import pandas as pd
 import mglearn
 import seaborn as sns
 sns.set_palette("tab10", n_colors=24)
+import altair as alt
 
 #%%
 X, y = mglearn.datasets.make_forge()
@@ -45,3 +46,32 @@ print(boston.DESCR)
 #%%
 X, y = mglearn.datasets.load_extended_boston()
 print(f"X.shape: {X.shape}")
+
+#%%
+mglearn.plots.plot_knn_classification(n_neighbors=1)
+
+#%%
+mglearn.plots.plot_knn_classification(n_neighbors=3)
+
+#%%
+mglearn.plots.plot_knn_classification(n_neighbors=5)
+
+#%%
+# separate datasets
+from sklearn.model_selection import train_test_split
+X, y = mglearn.datasets.make_forge()
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+
+#%%
+print(X_train)
+print(type(X_train))
+print(X_train[:,0])
+plt.scatter(X_train[:,0], X_train[:,1])
+
+#%%
+df = pd.DataFrame(X_train, columns=['x1', 'x2'])
+alt.Chart(df).mark_point().encode(
+    x=alt.X('x1', scale=alt.Scale(zero=False)),
+    y='x2',
+)
+

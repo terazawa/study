@@ -5,6 +5,9 @@
         "./zero"
     ],
     "python.testing.pytestArgs": [
+        "-s",
+        "--hypothesis-verbosity=verbose",
+        "--hypothesis-show-statistics",
         "fluent",
         "zero"
     ],
