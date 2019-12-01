@@ -164,3 +164,17 @@ print(f"Test set predictions:\n{reg.predict(X_test)}")
 #%%
 print(f"Test set R^2: {reg.score(X_test, y_test):.2f}")
 
+#%%
+fig, axes = plt.subplots(1, 3, figsize=(15, 4))
+line = np.linspace(-3, 3, 1000).reshape(-1, 1)
+for n_neighbors, ax in zip([1, 3, 9], axes):
+    reg = KNeighborsRegressor(n_neighbors=n_neighbors)
+    reg.fit(X_train, y_train)
+    ax.plot(line, reg.predict(line))
+    ax.plot(X_train, y_train, '^', c=mglearn.cm2(0), markersize=8)
+    ax.plot(X_test, y_test, 'v', c=mglearn.cm2(1), markersize=8)
+    ax.set_title(f"{n_neighbors} neighbor(s)\n train score: {reg.score(X_train, y_train):.2f} test score: {reg.score(X_test, y_test):.2f}")
+    ax.set_xlabel("Feature")
+    ax.set_ylabel("Target")
+axes[0].legend(["Model predictions", "Training data/target", "Test data/target"], loc="best")
+
